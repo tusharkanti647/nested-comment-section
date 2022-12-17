@@ -120,8 +120,9 @@ const createNode = (commentObject) => {
     const replyWrapper = document.createElement("div");
     replyWrapper.classList.add("replay-wrapper");
  
-    const replyInput = document.createElement("input");
+    const replyInput = document.createElement("textarea");
     replyInput.classList.add("replay-input");
+    replyInput.setAttribute("placeholder", "enter your reply here......");
  
     const replyAddButton = document.createElement("button");
     replyAddButton.classList.add("button", "success");
