@@ -1,47 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>I have a say</title>
-    <meta name="description" content="A new tool that blends your everyday work apps into one. It's the all-in-one workspace for you and your team, it is a nested comment section">
-    <link rel="icon" type="image/x-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAABLVJREFUWEetV3tMU1cYP+feNvTSFKQ8gsCUydwEQ5yOwggiZom6+YfOJVYHw8SQFXk5nMM0SwwkMyBReTiYbQmbQWChbFn2RDAzKEPHQAhOB+rwMRCJVCi3Le1t771nuU3K2hW4l0L/6zm/7/t+33e/14FAwE+lUon/ZBhZTPSuUNqO+UsIYKXNozPPR/vJjkuXLAJULAiBiwm/q74Q/cQIDopw8NY0BWMBBqJceAiAjQD0MAvwX5PlVIuu7KM+CCFaKpl5CRRWfreqc2ii0MTCPIiBED6lHBkZsDbEREQWt5YoJ/jw7vdeBA4XlMT10JGNdobZvBRFHFaKMX9jdur9gS8/7hMq60EgLr08kfIP/FmI1wsZ4Ei8Gh6aKjQScwT2l+jD709MdllY/BWh7BfCBWK25luawgwhepwE9Ho9Xn51vGGGlaQLEeLFsGBsvbVrY1tTE8mHdRL4UF2l6JySXEcASPgEhNxDAIxJL8nfbDypvMeHdxKIz9VqrDTK5gMLvV8SgZ2ZmdIJIum3WSB6XagBXhwLxkJR76ab9fVTfFiYnJUlN+CKEQTAKj6w0HvWAYZfs3clCcqBvLPfrm2/P/lYqHKhuGh/puhKZe45vu4IP/i0cnWPgXi4Ugno3qolAFZtD6YqPi87OrkQcfhORkbAAyL1rnufF+qlEBxigUGOg8xe7ZHL8+EhQggm5mvapx1whxCFvmAiGVJ5rf5E67wEuMNtqjPp40DW5IvyxWS4IRUtNn3xsuOBWqfTObr37QvbvOnFIdzuOGACsDqk9Eajsw+oy5qCvhkx3V7pzxAEwZ4/NNk/DWTtXb1OPnWYwFAuZPEIziYVQuXL1D21c7NgR2FN3qNZUc1KRmENblG2hOgfBlCiHzjDCNIkBeh2E4WqurcW9SiVSmaOQPL+YwQpj/ueQsyK5AKXfCkBT3eek3ZgAQymsTPYLdJqb3AZdquW/3yOO1SR6JD4X/O1JLlRLMVogwlIBuGs+eLti8d/55Lc0J4d7tfXn4gjxmNjsljwUY99gAMn5FQ3+joVCRHUng97lr+9uJhxb0Cm00kH/Qx+X///8zK4bcxrI1Jka96eRqDNl1xwZr0/U7yBYL46X1pgcJEY3pMSERRjzgYM9Ji2iBb3exFYkdnAgjEJhlru6HI++St999qoIEuNTWq+8s+QrDnhx06Du3PzEpiEisHllqRMDMoHao+ox4tSUkMQfp0zijBm3Eaz+qnZwOroC21PuAh5EeBW8btTcMjXRHR5F0yIq3qqs45xeTVTufUN0VN4SoyxyRCJArhyJMUoJ7T0ZrMXgXiVtswKkNqXHHCXkUL25KA295T7mbEiJcGPdBQCK0ijg+Bpj0bEAVMLdGkTFHtZqPfc5uO+R3D/CUA/5h4rsRHBZ+fbjLmIPCrdG2Zdv2V6o7LE7hGBxJy61GmG6eAjwG298WuiPrs30vZ8S+xumcvL/qFfTLtI0lzS2moXGkGvPpB2vEH1zGytWojEKkDV9mqPFvAtGj4RcGYqQlCRX3fASLFnvCqBBWPrqO4Ny32QLlqGrsv3TtRFGYzGbRQhV3BnNhv1grGQV+80qm8I9U4IbtHXsRAFy8X8C2Zm+VwjEIxGAAAAAElFTkSuQmCC">
-    <link rel="stylesheet" href="style.css" />
-    <script src="code.js" defer></script>
-  </head>
-  <body>
-    <div>
-      <div class="input-and-button-wrapper">
-        <textarea class="comment-input" placeholder="enter your comment here......"></textarea>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I have a say</title>
+  <meta name="description"
+    content="A new tool that blends your everyday work apps into one. It's the all-in-one workspace for you and your team, it is a nested comment section">
+  <link rel="icon" type="image/x-icon"
+    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAABLVJREFUWEetV3tMU1cYP+feNvTSFKQ8gsCUydwEQ5yOwggiZom6+YfOJVYHw8SQFXk5nMM0SwwkMyBReTiYbQmbQWChbFn2RDAzKEPHQAhOB+rwMRCJVCi3Le1t771nuU3K2hW4l0L/6zm/7/t+33e/14FAwE+lUon/ZBhZTPSuUNqO+UsIYKXNozPPR/vJjkuXLAJULAiBiwm/q74Q/cQIDopw8NY0BWMBBqJceAiAjQD0MAvwX5PlVIuu7KM+CCFaKpl5CRRWfreqc2ii0MTCPIiBED6lHBkZsDbEREQWt5YoJ/jw7vdeBA4XlMT10JGNdobZvBRFHFaKMX9jdur9gS8/7hMq60EgLr08kfIP/FmI1wsZ4Ei8Gh6aKjQScwT2l+jD709MdllY/BWh7BfCBWK25luawgwhepwE9Ho9Xn51vGGGlaQLEeLFsGBsvbVrY1tTE8mHdRL4UF2l6JySXEcASPgEhNxDAIxJL8nfbDypvMeHdxKIz9VqrDTK5gMLvV8SgZ2ZmdIJIum3WSB6XagBXhwLxkJR76ab9fVTfFiYnJUlN+CKEQTAKj6w0HvWAYZfs3clCcqBvLPfrm2/P/lYqHKhuGh/puhKZe45vu4IP/i0cnWPgXi4Ugno3qolAFZtD6YqPi87OrkQcfhORkbAAyL1rnufF+qlEBxigUGOg8xe7ZHL8+EhQggm5mvapx1whxCFvmAiGVJ5rf5E67wEuMNtqjPp40DW5IvyxWS4IRUtNn3xsuOBWqfTObr37QvbvOnFIdzuOGACsDqk9Eajsw+oy5qCvhkx3V7pzxAEwZ4/NNk/DWTtXb1OPnWYwFAuZPEIziYVQuXL1D21c7NgR2FN3qNZUc1KRmENblG2hOgfBlCiHzjDCNIkBeh2E4WqurcW9SiVSmaOQPL+YwQpj/ueQsyK5AKXfCkBT3eek3ZgAQymsTPYLdJqb3AZdquW/3yOO1SR6JD4X/O1JLlRLMVogwlIBuGs+eLti8d/55Lc0J4d7tfXn4gjxmNjsljwUY99gAMn5FQ3+joVCRHUng97lr+9uJhxb0Cm00kH/Qx+X///8zK4bcxrI1Jka96eRqDNl1xwZr0/U7yBYL46X1pgcJEY3pMSERRjzgYM9Ji2iBb3exFYkdnAgjEJhlru6HI++St999qoIEuNTWq+8s+QrDnhx06Du3PzEpiEisHllqRMDMoHao+ox4tSUkMQfp0zijBm3Eaz+qnZwOroC21PuAh5EeBW8btTcMjXRHR5F0yIq3qqs45xeTVTufUN0VN4SoyxyRCJArhyJMUoJ7T0ZrMXgXiVtswKkNqXHHCXkUL25KA295T7mbEiJcGPdBQCK0ijg+Bpj0bEAVMLdGkTFHtZqPfc5uO+R3D/CUA/5h4rsRHBZ+fbjLmIPCrdG2Zdv2V6o7LE7hGBxJy61GmG6eAjwG298WuiPrs30vZ8S+xumcvL/qFfTLtI0lzS2moXGkGvPpB2vEH1zGytWojEKkDV9mqPFvAtGj4RcGYqQlCRX3fASLFnvCqBBWPrqO4Ny32QLlqGrsv3TtRFGYzGbRQhV3BnNhv1grGQV+80qm8I9U4IbtHXsRAFy8X8C2Zm+VwjEIxGAAAAAElFTkSuQmCC">
+  <link rel="stylesheet" href="style.css" />
+  <script src="code.js" defer></script>
+</head>
+
+<body>
+  <div class="contanar">
+    <div class="input-and-button-wrapper">
+      <textarea class="comment-input" placeholder="enter your comment here......"></textarea>
+      <div class="button-div">
         <button class="button success add-button">Add</button>
       </div>
+    </div>
 
-      <div class="comment-wrapper">
-        <!-- <div class="comment">
+    <div class="comment-wrapper">
+      <div class="comment">
+        <div class="comment-contener">
+          <p class="comment-text">This is a comment 11</p>
+          <div class="button-and-likes-wrapper">
+            <button class="button success">Reply</button>
+            <button class="button delete">Delete</button>
+            <button class="button success">Like</button>
+            <div class="likes-text"><p>0</p></div>
+          </div>
+        </div>
+
+
+        <div class="comment">
           <div class="comment-contener">
             <div class="comment-text">This is a comment 11</div>
             <div class="button-and-likes-wrapper">
               <button class="button success">Reply</button>
-              <button class="button success">Like</button>
               <button class="button delete">Delete</button>
-              <div class="likes-text">| 0 Likes</div>
+              <button class="button success">Like</button>
+              <div class="likes-text">0</div>
             </div>
           </div>
-
-
-          <div class="comment"> 
-            <div class="comment-contener">
-              <div class="comment-text">This is a comment 11</div>
-              <div class="button-and-likes-wrapper">
-                <button class="button success">Reply</button>
-                <button class="button success">Like</button>
-                <button class="button delete">Delete</button>
-                <div class="likes-text">| 0 Likes</div>
-              </div>
-            </div>
-        </div> -->
+        </div>
       </div>
     </div>
-  </body>
+</body>
+
 </html>

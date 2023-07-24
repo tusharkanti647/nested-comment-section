@@ -4,67 +4,36 @@ const commentInput = document.querySelector(".comment-input");
 const addButton = document.querySelector(".add-button");
 
 
-// const localStorageKey = "key";
+const commentObjectArray = [];
 
-// const StringToArray = () => {
-//     const getString = JSON.getItem(localStorageKey);
-//     if (!getString) {
-//         return [];
-//       }
-//     return JSON.parse(getString);
-// }
-
-//store the all object of comment in the commentObjectArray
- const commentObjectArray = [];
-//const commentObjectArray = StringToArray();
-
-// const saveState = () =>{
-//     const str = JSON.stringify(commentObjectArray);
-
-//     localStorage.setItem(localStorageKey, str);
-// }
-
-//create a comment object, the object hold the given dada
 const createObject = (commentText) => {
     return {
-        id : Math.random(),
-        like : 0,
-        text : commentText,
-        replies : [],
+        id: Math.random(),
+        like: 0,
+        text: commentText,
+        replies: [],
     }
 }
 
 const deleteComment = (comments, commentId) => {
     for (let i = 0; i < comments.length; i++) {
-      const comment = comments[i];
-  
-      if (comment.id === commentId) {
-        comments.splice(i, 1);
-        return;
-      }
-  
-      deleteComment(comment.replies, commentId);
+        const comment = comments[i];
+
+        if (comment.id === commentId) {
+            comments.splice(i, 1);
+            return;
+        }
+        deleteComment(comment.replies, commentId);
     }
-  };
-
-// const deleteComment = (commentsArra, commentId) => {
-//     console.log(commentsArra);
-//     for(let i=0; i<commentsArra.length; i++){
-//         if(commentsArra[i] === commentId){
-//             commentsArra.splice(i, 1);
-//             return;
-//         }
-
-//         deleteComment(commentsArra.replies, commentId);
-//     }
-// }
-
-
+};
 
 //create new commend node & button element and connect each other
 const createNode = (commentObject) => {
     const commentDiv = document.createElement("div");
-    commentDiv.classList.add("comment", "hide-reply");
+    commentDiv.classList.add("comment");
+
+    const commentContener=document.createElement("div");
+    commentContener.classList.add("comment-contener", "hide-reply");
 
     const commentTextDiv = document.createElement("div");
     commentTextDiv.classList.add("comment-text");
@@ -72,63 +41,63 @@ const createNode = (commentObject) => {
 
     const buttonAndLikesWrapperDiv = document.createElement("div");
     buttonAndLikesWrapperDiv.classList.add("button-and-likes-wrapper");
-    
+
     const replyButton = document.createElement("button");
     replyButton.classList.add("button", "success");
-    replyButton.innerHTML ="Reply";
-    replyButton.onclick = () =>{
-        commentDiv.classList.toggle("hide-reply");
+    replyButton.innerHTML = "Reply";
+    replyButton.onclick = () => {
+        commentContener.classList.toggle("hide-reply");
     }
 
     const LikeButton = document.createElement("button");
     LikeButton.classList.add("button", "success");
     LikeButton.innerHTML = "Like";
     LikeButton.onclick = () => {
-        commentObject.like ++;
+        commentObject.like++;
 
-        
         renderComments();
     }
-    
+
 
     const deleteButton = document.createElement("button");
     deleteButton.classList.add("button", "delete");
     deleteButton.innerHTML = "Delete";
     deleteButton.onclick = () => {
         deleteComment(commentObjectArray, commentObject.id);
-        console.log(commentObjectArray);
-        
+        //console.log(commentObjectArray);
+
         renderComments();
     }
 
     const likesTextDiv = document.createElement("div");
     likesTextDiv.classList.add("likes-text");
-    likesTextDiv.innerHTML = `| ${commentObject.like} Likes`;
+    likesTextDiv.innerHTML = `${commentObject.like}`;
 
 
     // commentDiv.appendChild(commentContenerDiv);
-    commentDiv.appendChild(commentTextDiv);
-    commentDiv.appendChild(buttonAndLikesWrapperDiv);
+    commentDiv.appendChild(commentContener)
+    commentContener.appendChild(commentTextDiv);
+    commentContener.appendChild(buttonAndLikesWrapperDiv);
 
     buttonAndLikesWrapperDiv.appendChild(replyButton);
-    buttonAndLikesWrapperDiv.appendChild(LikeButton);
     buttonAndLikesWrapperDiv.appendChild(deleteButton);
+    buttonAndLikesWrapperDiv.appendChild(LikeButton);
     buttonAndLikesWrapperDiv.appendChild(likesTextDiv);
 
 
     //create replay box
     const replyWrapper = document.createElement("div");
     replyWrapper.classList.add("replay-wrapper");
- 
+
     const replyInput = document.createElement("textarea");
     replyInput.classList.add("replay-input");
     replyInput.setAttribute("placeholder", "enter your reply here......");
- 
+
     const replyAddButton = document.createElement("button");
     replyAddButton.classList.add("button", "success");
-    replyAddButton.innerHTML ="add";
+    replyAddButton.innerHTML = "add";
     replyAddButton.onclick = () => {
-        if(replyInput.value === ""){
+        if (replyInput.value === "") {
             alert("Please filled the replay box");
             return;
         }
@@ -138,10 +107,10 @@ const createNode = (commentObject) => {
         const newReplayObject = createObject(replyInput.value);
         // const findCommentobj = findCommentObject(commentObjectArray, commentId);
         commentObject.replies.push(newReplayObject);
-        
+
         renderComments();
     }
- 
+
     const deleteReplyButton = document.createElement("button");
     deleteReplyButton.classList.add("button", "delete");
     deleteReplyButton.innerHTML = "Cancel";
@@ -155,19 +124,18 @@ const createNode = (commentObject) => {
         return createNode(replay);
     });
 
-    commentDiv.appendChild(replyWrapper);
+    commentContener.appendChild(replyWrapper);
 
     replyWrapper.appendChild(replyInput);
     replyWrapper.appendChild(replyAddButton);
     replyWrapper.appendChild(deleteReplyButton);
 
-    
+
     replayCommentDomArray.forEach((replayDom) => {
-        commentDiv.appendChild(replayDom);
+        commentContener.appendChild(replayDom);
     });
 
     return commentDiv;
-
 }
 
 
@@ -175,7 +143,7 @@ const createNode = (commentObject) => {
 //link each child of comment-wrapper class with comment-wrapper class and render the all comments
 function renderComments() {
     //each time 1st clear the all render comment
-    commentWrapper.innerHTML ="";
+    commentWrapper.innerHTML = "";
 
     commentObjectArray.forEach((commentObject) => {
         const newCommentNode = createNode(commentObject);
@@ -183,10 +151,9 @@ function renderComments() {
     });
 }
 
-//
 const addComment = () => {
     //if input filled is empty, give a alert message and return
-    if(commentInput.value === ""){
+    if (commentInput.value === "") {
         alert("Please filled the comment box");
         return;
     }
@@ -194,11 +161,9 @@ const addComment = () => {
     // when input box is not empty call function create object.
     const newCommentObject = createObject(commentInput.value);
     commentObjectArray.push(newCommentObject);
-
     commentInput.value = "";
 
     //call the renderComment function to render the all comments
-    
     renderComments();
 }
 
